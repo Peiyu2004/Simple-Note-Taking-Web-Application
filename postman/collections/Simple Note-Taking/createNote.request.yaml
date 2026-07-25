@@ -1,0 +1,14 @@
+$kind: http-request
+name: createNote
+url: http://localhost:5000/api/notes
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"title\": \"Postman Test\",\r
+
+    \  \"content\": \"Testing my note creation from Postman!\"\r
+
+    }"
+order: 1784821577670

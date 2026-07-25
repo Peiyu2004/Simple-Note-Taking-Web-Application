@@ -1,0 +1,5 @@
+$kind: http-request
+name: deleteNote
+url: http://localhost:5000/api/notes/2
+method: DELETE
+order: 457774598549894

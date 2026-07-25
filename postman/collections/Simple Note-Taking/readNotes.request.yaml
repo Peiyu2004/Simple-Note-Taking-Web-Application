@@ -1,0 +1,5 @@
+$kind: http-request
+name: readNotes
+url: http://localhost:5000/api/notes
+method: GET
+order: 39578951502256
