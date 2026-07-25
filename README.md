@@ -113,10 +113,10 @@ During the development of this application, Generative AI was utilized to accele
 > A Vue 3 utility function formatDate that takes a raw SQLite timestamp string, converts missing ISO/UTC offsets by appending a 'Z', creates a native JavaScript Date object, and formats it to the local browser timezone (e.g., en-MY format) using toLocaleTimeString().
 
 * **How It Was Modified / Verified:**
-> Extended the formatting function to include full date options (year: 'numeric', month: 'short', day: 'numeric') alongside toLocaleTimeString() and added a fallback for invalid/null date strings.
+Extended the formatting function to include full date options (year: 'numeric', month: 'short', day: 'numeric') alongside toLocaleTimeString() and added a fallback for invalid/null date strings.
 
 * **Why Changes Were Made:**
-> Storing timestamps in pure UTC on the backend is full-stack best practice. Converting to the client's locale inside Vue 3 ensures users across any timezone see their local time formatted properly (e.g., "11:49 PM" or "Jul 26, 2026, 11:49 PM") without forcing hardcoded timezone conversions on the server.
+Storing timestamps in pure UTC on the backend is full-stack best practice. Converting to the client's locale inside Vue 3 ensures users across any timezone see their local time formatted properly (e.g., "11:49 PM" or "Jul 26, 2026, 11:49 PM") without forcing hardcoded timezone conversions on the server.
 
 ### Example 2: Vue 3 Component & Tailwind CSS v4 Integration
 * **Prompt Given:**
@@ -126,23 +126,10 @@ During the development of this application, Generative AI was utilized to accele
 > The AI generated a Vue 3 `<script setup>` single file component using `axios` to fetch/mutate notes, styled with classic Tailwind CSS setup (PostCSS configuration and `@tailwind base;` directives in a global CSS file).
 
 * **How It Was Modified / Verified:**
-> Migrated the styling setup to **Tailwind CSS v4** using the `@tailwindcss/vite` plugin in `vite.config.js` and imported `@import "tailwindcss";` directly into the CSS.
+Migrated the styling setup to **Tailwind CSS v4** using the `@tailwindcss/vite` plugin in `vite.config.js` and imported `@import "tailwindcss";` directly into the CSS.
 
 * **Why Changes Were Made:**
-> Tailwind CSS v4 simplifies the build pipeline by eliminating the need for `postcss.config.js` and `tailwind.config.js`. Using the dedicated `@tailwindcss/vite` plugin provided faster build times, cleaner configuration, and seamless integration with Vite 6.
-
-### Example 3: Action Button Alignment & UI Consistency
-* **Prompt Given:**
-> *"Change the create note button to comply with the edit note styling"*
-
-* **AI Output:**
-> Provided a updated .form-actions template layout along with custom CSS flex styles to move the primary "Save Note" button to the right and keep secondary actions ("Cancel" / "Back") on the left.
-
-* **How It Was Modified / Verified:**
-> Tested the layout across both the Create Note form and Edit Note view to ensure button positioning remained visually balanced on different screen sizes.
-
-* **Why Changes Were Made:**
-> The original create form had different button labels ("Add Note") and alignment compared to the edit form. Harmonizing them into a unified layout created a much cleaner, more consistent user experience.
+Tailwind CSS v4 simplifies the build pipeline by eliminating the need for `postcss.config.js` and `tailwind.config.js`. Using the dedicated `@tailwindcss/vite` plugin provided faster build times, cleaner configuration, and seamless integration with Vite 6.
 
 ### Example 3: Checkbox Toggling Design in Markdown Preview
 * **Prompt Given:**
@@ -152,7 +139,7 @@ During the development of this application, Generative AI was utilized to accele
 > The AI identified that `marked.js` renders Markdown task list inputs with the `disabled` attribute by default. It provided a custom `marked.Renderer()` configuration to remove `disabled` and an event delegation function targeting `<input type="checkbox">` elements.
 
 * **How It Was Modified / Verified:**
-> Integrated the custom renderer within Vue 3 `<script setup>`, added a custom CSS design for circular checkboxes, and intercepted click events using `event.preventDefault()` to mutate the underlying Markdown string (`- [ ]` $\rightarrow$ `- [x]`).
+Integrated the custom renderer within Vue 3 `<script setup>`, added a custom CSS design for circular checkboxes, and intercepted click events using `event.preventDefault()` to mutate the underlying Markdown string (`- [ ]` $\rightarrow$ `- [x]`).
 
 * **Why Changes Were Made:**
-> Standard Markdown task lists render non-interactive checkboxes. Replacing the default markup with custom circular styling and handling click state directly in Vue ensured users could toggle task completion smoothly in preview mode without needing to manually edit the Markdown text.
+Standard Markdown task lists render non-interactive checkboxes. Replacing the default markup with custom circular styling and handling click state directly in Vue ensured users could toggle task completion smoothly in preview mode without needing to manually edit the Markdown text.
