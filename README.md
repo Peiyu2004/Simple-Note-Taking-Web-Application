@@ -110,7 +110,7 @@ During the development of this application, Generative AI was utilized to accele
 > *"How to solve UTC vs local time mismatch when storing ISO strings in SQLite and displaying formatted dates in Vue 3?"*
 
 * **AI Output:**
-> A Vue 3 utility function formatDate that takes a raw SQLite timestamp string, converts missing ISO/UTC offsets by appending a 'Z', creates a native JavaScript Date object, and formats it to the local browser timezone (e.g., en-MY format) using toLocaleTimeString().
+A Vue 3 utility function formatDate that takes a raw SQLite timestamp string, converts missing ISO/UTC offsets by appending a 'Z', creates a native JavaScript Date object, and formats it to the local browser timezone (e.g., en-MY format) using toLocaleTimeString().
 
 * **How It Was Modified / Verified:**
 Extended the formatting function to include full date options (year: 'numeric', month: 'short', day: 'numeric') alongside toLocaleTimeString() and added a fallback for invalid/null date strings.
@@ -123,7 +123,7 @@ Storing timestamps in pure UTC on the backend is full-stack best practice. Conve
 > *"Change the create note button to comply with the edit note styling"*
 
 * **AI Output Code Brief:**
-> The AI generated a Vue 3 `<script setup>` single file component using `axios` to fetch/mutate notes, styled with classic Tailwind CSS setup (PostCSS configuration and `@tailwind base;` directives in a global CSS file).
+The AI generated a Vue 3 `<script setup>` single file component using `axios` to fetch/mutate notes, styled with classic Tailwind CSS setup (PostCSS configuration and `@tailwind base;` directives in a global CSS file).
 
 * **How It Was Modified / Verified:**
 Migrated the styling setup to **Tailwind CSS v4** using the `@tailwindcss/vite` plugin in `vite.config.js` and imported `@import "tailwindcss";` directly into the CSS.
@@ -136,7 +136,7 @@ Tailwind CSS v4 simplifies the build pipeline by eliminating the need for `postc
 > *"Generate a circle check box design that allows user to checked and unchecked"*
 
 * **AI Output Code Brief:**
-> The AI identified that `marked.js` renders Markdown task list inputs with the `disabled` attribute by default. It provided a custom `marked.Renderer()` configuration to remove `disabled` and an event delegation function targeting `<input type="checkbox">` elements.
+The AI identified that `marked.js` renders Markdown task list inputs with the `disabled` attribute by default. It provided a custom `marked.Renderer()` configuration to remove `disabled` and an event delegation function targeting `<input type="checkbox">` elements.
 
 * **How It Was Modified / Verified:**
 Integrated the custom renderer within Vue 3 `<script setup>`, added a custom CSS design for circular checkboxes, and intercepted click events using `event.preventDefault()` to mutate the underlying Markdown string (`- [ ]` $\rightarrow$ `- [x]`).
