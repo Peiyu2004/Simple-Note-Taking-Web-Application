@@ -89,15 +89,26 @@
         ></div>
       </div>
 
-      <!-- Form Action Buttons -->
-      <div class="form-actions">
-        <button type="submit" :disabled="loading" class="btn-primary">
-          {{ loading ? 'Saving...' : isEditing ? 'Update Note' : 'Add Note' }}
+        <!-- Form Action Buttons -->
+        <div class="form-actions">
+        <button type="button" @click="handleCancel" class="btn-secondary">
+          {{ isEditing ? 'Back' : 'Cancel' }}
         </button>
 
-        <button type="button" @click="handleCancel" class="btn-secondary">
-          Cancel
-        </button>
+        <div class="form-actions-right">
+          <button 
+            v-if="isEditing" 
+            type="button" 
+            @click="$emit('delete-note')" 
+            class="btn-danger-text"
+          >
+            Delete
+          </button>
+
+          <button type="submit" :disabled="loading" class="btn-primary">
+            {{ loading ? 'Saving...' : 'Save Note' }}
+          </button>
+        </div>
       </div>
     </form>
   </div>

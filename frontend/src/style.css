@@ -553,8 +553,28 @@ body {
 /* Actions Bar */
 .form-actions {
   display: flex;
-  gap: 0.75rem;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 1.5rem;
+}
+
+.form-actions-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-danger-text {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.btn-danger-text:hover {
+  color: #dc2626;
 }
 
 /* ==========================================
@@ -649,7 +669,9 @@ body {
   border: 2px solid #6366f1; /* Indigo outline */
   border-radius: 50%; /* Circle shape */
   outline: none;
-  cursor: pointer;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
   transition: all 0.2s ease-in-out;
   position: relative;
   flex-shrink: 0;
@@ -677,6 +699,11 @@ body {
 .markdown-body li:has(input[type="checkbox"]:checked) {
   color: #94a3b8;
   text-decoration: line-through;
+}
+
+/* If you have wrapper labels or custom circle span styles */
+.markdown-body .task-list-item {
+  list-style-type: none;
 }
 
 /* ==========================================

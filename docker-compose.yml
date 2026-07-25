@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: note_taking_app
+    ports:
+      - "5000:5000" # Map host port 3000 to container port 3000
+    restart: always
+    environment:
+      - NODE_ENV=production

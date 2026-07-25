@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const db = require('./database');
 
 const app = express();
@@ -9,8 +10,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// --- 1. Root Test Route ---
-app.get('/', (req, res) => {
+// Serve static frontend files from Vite build output
+app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+
+// --- 1. API Health Check Route ---
+app.get('/api', (req, res) => {
   res.json({ message: 'Note-Taking API is running successfully!' });
 });
 
@@ -25,7 +29,7 @@ app.get('/api/notes', (req, res) => {
   });
 });
 
-// --- 2.5 GET single note by ID (FIXED ADDITION) ---
+// --- 2.5 GET single note by ID ---
 app.get('/api/notes/:id', (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT * FROM notes WHERE id = ?';
@@ -98,6 +102,11 @@ app.delete('/api/notes/:id', (req, res) => {
     }
     res.json({ message: 'Note deleted successfully.' });
   });
+});
+
+// --- Fallback route for SPA Client-side Routing ---
+app.get(/(.*)/, (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 });
 
 // Start Server
