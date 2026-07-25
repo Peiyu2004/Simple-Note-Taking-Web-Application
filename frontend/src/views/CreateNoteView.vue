@@ -20,7 +20,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import CreateNote from '../components/CreateNote.vue';
 
-const API_URL = 'http://localhost:5000/api/notes';
+const API_URL = import.meta.env.VITE_API_URL || 'https://simple-note-taking-web-application.onrender.com/api/notes';
 
 const route = useRoute();
 const router = useRouter();

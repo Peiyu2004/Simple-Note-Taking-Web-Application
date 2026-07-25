@@ -40,7 +40,7 @@
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
-const API_URL = 'http://localhost:5000/api/notes';
+const API_URL = import.meta.env.VITE_API_URL || 'https://simple-note-taking-web-application.onrender.com/api/notes';
 const router = useRouter();
 
 const notes = ref([]);
